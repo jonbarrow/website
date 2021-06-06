@@ -232,8 +232,25 @@ footer {
 	section#works div#works-list {
 		display: grid;
 		grid-template-columns: 1fr;
-		padding: 1em;
-		grid-row-gap: 100px;
+		padding: 0;
+		grid-row-gap: 20px;
+		margin-top: 50px;
+	}
+	section#works h1.section-title, section#works p.section-description {
+		width: 100%;
+		text-align: left;
+	}
+
+	section#about {
+		grid-template-columns: 100%;
+	}
+
+	section#about .about-images-wrapper {
+		display: none;
+	}
+
+	section#works div#works-list .work .work-icon {
+		margin-top: 0;
 	}
 }
 
