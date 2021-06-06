@@ -1,5 +1,5 @@
 <header>
-	<nav>
+	<nav class="container">
 		<ul class="flex ml-40 pt-10 text-xl">
 			<li class="title mr-6 text-black">Jonathan Barrow</li>
 			<li class="link mr-4"><a class="text-gray-700" href="#about">About</a></li>
@@ -10,55 +10,61 @@
 </header>
 
 <main>
-	<section id="header">
+	
+	<section id="header" class="container">
 		<span><img id="profile" src="/images/profile.jpg" alt=""></span>
 		<h1 class="section-title">Hey there, I'm Jonathan</h1>
 		<p class="section-description">Backend developer for hire</p>
 	</section>
-	<section id="about">
+	
+	<section id="about" class="container">
 		<h1 class="section-title">About me</h1>
 		<p class="section-description">Hi, I'm Jonathan and I'm a backend developer and software researcher. My work consists mostly of research/reverse engineering of software and building tools and APIs for them, as well as other general backend server development.</p>
 		<p class="section-description">I work with web scraping, reverse engineering APIs, building replacement Nintendo game servers, and everything in between</p>
 	</section>
+	
 	<section id="works">
-		<h1 class="section-title">My works</h1>
-		<p class="section-description">Here are some of my notable works. This is only a small sample of what I have done, for more see my GitHub linked below</p>
-		<div id="works-list">
-			<div class="work">
-				<div class="content">
-					<img class="work-icon" src="/images/works/pretendo.png" alt="">
-					<h1 class="work-title">Pretendo</h1>
-					<ul class="work-languages">
-						<li>NodeJS</li>
-						<li>Golang</li>
-						<li>Python</li>
-					</ul>
-					<p class="work-description">Custom game server replacements for Nintendo Network on the WiiU and 3DS</p>
+		<div class="container">
+			<h1 class="section-title">My works</h1>
+			<p class="section-description">Here are some of my notable works. This is only a small sample of what I have done, for more see my GitHub linked below</p>
+			<div id="works-list">
+				<div class="work">
+					<div class="content">
+						<img class="work-icon" src="/images/works/pretendo.png" alt="">
+						<h1 class="work-title">Pretendo</h1>
+						<ul class="work-languages">
+							<li>NodeJS</li>
+							<li>Golang</li>
+							<li>Python</li>
+						</ul>
+						<p class="work-description">Custom game server replacements for Nintendo Network on the WiiU and 3DS</p>
+					</div>
 				</div>
-			</div>
-			<div class="work">
-				<div class="content">
-					<img class="work-icon" src="/images/works/disneyplus.png" alt="">
-					<h1 class="work-title">Disney+ API</h1>
-					<ul class="work-languages">
-						<li>NodeJS</li>
-					</ul>
-					<p class="work-description">Reverse engineering the Disney+ private API and making a custom client</p>
+				<div class="work">
+					<div class="content">
+						<img class="work-icon" src="/images/works/disneyplus.png" alt="">
+						<h1 class="work-title">Disney+ API</h1>
+						<ul class="work-languages">
+							<li>NodeJS</li>
+						</ul>
+						<p class="work-description">Reverse engineering the Disney+ private API and making a custom client</p>
+					</div>
 				</div>
-			</div>
-			<div class="work">
-				<div class="content">
-					<img class="work-icon" src="/images/works/minehut.png" alt="">
-					<h1 class="work-title">Minehut API</h1>
-					<ul class="work-languages">
-						<li>NodeJS</li>
-					</ul>
-					<p class="work-description">Reverse engineering the Minehut server API and making a custom client</p>
+				<div class="work">
+					<div class="content">
+						<img class="work-icon" src="/images/works/minehut.png" alt="">
+						<h1 class="work-title">Minehut API</h1>
+						<ul class="work-languages">
+							<li>NodeJS</li>
+						</ul>
+						<p class="work-description">Reverse engineering the Minehut server API and making a custom client</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section id="contact"></section>
+
+	{{!-- <section id="contact"></section> --}}
 </main>
 
 <footer>Copyright 2021 - Jonathan Barrow</footer>
