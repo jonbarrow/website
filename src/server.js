@@ -1,6 +1,6 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
-const config = require('../config.json');
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -13,4 +13,4 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.listen(config.port);
+module.exports.handler = serverless(app);
