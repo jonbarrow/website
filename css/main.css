@@ -172,6 +172,7 @@ section#works div#works-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
 	gap: 2rem;
+	row-gap: 3em;
 }
 
 section#works div#works-list .work {
@@ -186,7 +187,7 @@ section#works div#works-list .work .content {
 
 section#works div#works-list .work .work-icon {
 	border-radius: 10%;
-	height: 5rem;
+	width: 5rem;
 	position: relative;
 	margin-top: -10rem;
 }
@@ -252,6 +253,18 @@ footer {
 	section#works div#works-list .work .work-icon {
 		margin-top: 0;
 	}
+}
+
+button {
+	appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	border-radius: 6px;
+	font-size: 1rem;
+	color: white;
+	padding: 12px 48px;
+	background: #262FAC;
+	cursor: pointer;
 }
 
 /* Circle thingies? */
