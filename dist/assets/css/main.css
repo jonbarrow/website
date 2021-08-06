@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap');
 
 :root {
 	--text-color-gray: #6A6B6B;
@@ -139,6 +139,7 @@ section#about .about-image {
 	border-radius: 10px;
 	object-fit: cover;
 }
+
 section#about .about-image#about-image-1 {
 	margin-right: -10%;
 	margin-top: -10%;
@@ -225,36 +226,6 @@ footer {
 	padding: 20px 0;
 }
 
-@media only screen and (max-width: 768px) {
-	nav ul li.title {
-		display: none;
-	}
-
-	section#works div#works-list {
-		display: grid;
-		grid-template-columns: 1fr;
-		padding: 0;
-		grid-row-gap: 20px;
-		margin-top: 50px;
-	}
-	section#works h1.section-title, section#works p.section-description {
-		width: 100%;
-		text-align: left;
-	}
-
-	section#about {
-		grid-template-columns: 100%;
-	}
-
-	section#about .about-images-wrapper {
-		display: none;
-	}
-
-	section#works div#works-list .work .work-icon {
-		margin-top: 0;
-	}
-}
-
 button {
 	appearance: none;
 	-webkit-appearance: none;
@@ -289,4 +260,40 @@ button.gmail {
 .social-links a {
 	display: inline-block;
 	padding: 10px
+}
+
+@media only screen and (max-width: 768px) {
+	nav ul li.title {
+		display: none;
+	}
+
+	section#works div#works-list .work a {
+		display: block;
+		margin-top: 10px;
+	}
+
+	section#works div#works-list {
+		display: grid;
+		grid-template-columns: 1fr;
+		padding: 0;
+		grid-row-gap: 20px;
+		margin-top: 50px;
+	}
+
+	section#works h1.section-title, section#works p.section-description {
+		width: 100%;
+		text-align: left;
+	}
+
+	section#about {
+		grid-template-columns: 100%;
+	}
+
+	section#about .about-images-wrapper {
+		display: none;
+	}
+
+	section#works div#works-list .work .work-icon {
+		margin-top: 0;
+	}
 }

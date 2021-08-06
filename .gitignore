@@ -80,7 +80,8 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# commented out for netlify
+#dist
 
 # Gatsby files
 .cache/

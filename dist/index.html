@@ -6,8 +6,8 @@
 	<title>Jonathan Barrow</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="manifest" href="/site.webmanifest">
-	<meta name="msapplication-config" content="/browserconfig.xml">
+	<link rel="manifest" href="/assets/site.webmanifest">
+	<meta name="msapplication-config" content="/assets/browserconfig.xml">
 
 	<!-- windows/ios/chrome -->
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,30 +15,40 @@
 	<meta name="application-name" content="Jonathan Barrow">
 	<meta name="msapplication-TileColor" content="#262fac">
 	<meta name="theme-color" content="#262FAC">
-	
+
 	<!-- open graph/embeds -->
 	<meta property="og:title" content="Jonathan Barrow">
-	<meta property="og:description" content="Backend developer and software researcher for hire. My work consists mostly of research/reverse engineering of software and building tools and APIs for them, as well as other general backend server development.">
+	<meta property="og:description"
+		content="Backend developer and software researcher for hire. My work consists mostly of research/reverse engineering of software and building tools and APIs for them, as well as other general backend server development.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://jonbarrow.dev/">
-	<meta property="og:image" content="https://jonbarrow.dev/images/opengraph/opengraph-image.png">
-	<meta property="og:image:alt" content="Jon Barrow">
-	<meta property="og:site_name" content="Jon Barrow">
-	
+	<meta property="og:image" content="https://jonbarrow.dev/assets/images/opengraph/opengraph-image.png">
+	<meta property="og:image:alt" content="Jonathan Barrow">
+	<meta property="og:site_name" content="Jonathan Barrow">
+
+	<!-- twitter embeds -->
+	<meta name="twitter:url" content="https://jonbarrow.dev/">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@jondbarrow">
+	<meta name="twitter:title" content="Jonathan Barrow">
+	<meta name="twitter:description" content="Backend developer and researcher for hire">
+	<meta name="twitter:image" content="https://jonbarrow.dev/assets/images/opengraph/opengraph-image.png">
+
 	<!-- google seo -->
-	<meta name="description" content="Backend developer and software researcher for hire. My work consists mostly of research/reverse engineering of software and building tools and APIs for them, as well as other general backend server development.">
+	<meta name="description"
+		content="Backend developer and software researcher for hire. My work consists mostly of research/reverse engineering of software and building tools and APIs for them, as well as other general backend server development.">
 	<meta name="robots" content="index, follow">
-	
+
 	<!-- favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
-	<link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#262FAC">
-	<link rel="shortcut icon" href="/images/icons/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+	<link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#262FAC">
+	<link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
 
 	<!-- styles -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
-	<link href="/css/main.css" rel="stylesheet">
+	<link href="/assets/css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -46,31 +56,35 @@
 		<nav class="container">
 			<ul class="flex ml-40 pt-10 text-xl">
 				<li class="title mr-6 text-black">Jonathan Barrow</li>
-				<li class="link mr-4"><a class="text-gray-700" href="#about">About</a></li>
-				<li class="link mr-4"><a class="text-gray-700" href="#works">Works</a></li>
-				<li class="link mr-4"><a class="text-gray-700" href="#contact">Contact</a></li>
+				<li class="link mr-4"><a class="text-gray-700" href="/">Home</a></li>
+				<li class="link mr-4"><a class="text-gray-700" href="/#about">About</a></li>
+				<li class="link mr-4"><a class="text-gray-700" href="/#works">Works</a></li>
+				<li class="link mr-4"><a class="text-gray-700" href="/#contact">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
-	
+
 	<main>
-	
+
 		<section id="header" class="container">
 			<div class="profile-wrapper">
 				<div class="circle" id="circle-1"></div>
 				<div class="circle" id="circle-2"></div>
 				<div class="circle" id="circle-3"></div>
-				<img id="profile" src="/images/profile.jpg" alt="">
+				<img id="profile" src="/assets/images/profile.jpg" alt="">
 			</div>
 			<h1 class="section-title">👋 Hey there, I'm Jonathan</h1>
 			<p class="section-description">Backend developer for hire</p>
 		</section>
-	
+
 		<section id="about" class="container">
 			<div>
 				<h1 class="section-title">About me</h1>
-				<p class="section-description">Hi, I'm Jonathan and I'm a backend developer and software researcher. My work consists mostly of research/reverse engineering of software and building tools and APIs for them, as well as other general backend server development.</p>
-				<p class="section-description">I work with web scraping, reverse engineering APIs, building replacement Nintendo game servers, and everything in between</p>
+				<p class="section-description">Hi, I'm Jonathan and I'm a backend developer and software researcher. My
+					work consists mostly of research/reverse engineering of software and building tools and APIs for
+					them, as well as other general backend server development.</p>
+				<p class="section-description">I work with web scraping, reverse engineering APIs, building replacement
+					Nintendo game servers, and everything in between</p>
 			</div>
 			<div class="about-images-wrapper">
 				<div class="about-images">
@@ -81,22 +95,27 @@
 				</div>
 			</div>
 		</section>
-	
+
 		<section id="works">
 			<div class="container">
 				<h1 class="section-title">My works</h1>
-				<p class="section-description">Here are some of my notable works. This is only a small sample of what I have done, for more see my GitHub linked below</p>
+				<p class="section-description">Here are some of my notable works. This is only a small sample of what I
+					have done, for more see my GitHub linked below</p>
 				<div id="works-list">
 					<div class="work">
 						<div class="content">
-							<img class="work-icon" src="/images/works/pretendo.png" alt="">
+							<img class="work-icon" src="/assets/images/works/pretendo.png" alt="">
 							<h1 class="work-title">Pretendo</h1>
 							<ul class="work-languages">
 								<li>NodeJS</li>
 								<li>Golang</li>
 								<li>Python</li>
 							</ul>
-							<p class="work-description">Custom game server replacements for Nintendo Network on the WiiU and 3DS</p>
+							<p class="work-description">Custom game server replacements for Nintendo Network on the WiiU
+								and 3DS</p>
+							<a target="_blank" href="http://github.com/PretendoNetwork">
+								<button>View on GitHub</button>
+							</a>
 							<a target="_blank" href="http://github.com/PretendoNetwork">
 								<button>View on GitHub</button>
 							</a>
@@ -104,12 +123,13 @@
 					</div>
 					<div class="work">
 						<div class="content">
-							<img class="work-icon" src="/images/works/disneyplus.png" alt="">
+							<img class="work-icon" src="/assets/images/works/disneyplus.png" alt="">
 							<h1 class="work-title">Disney+ API</h1>
 							<ul class="work-languages">
 								<li>NodeJS</li>
 							</ul>
-							<p class="work-description">Reverse engineering the Disney+ private API and making a custom client</p>
+							<p class="work-description">Reverse engineering the Disney+ private API and making a custom
+								client</p>
 							<a target="_blank" href="https://github.com/jonbarrow/disneyplus-client">
 								<button>View on GitHub</button>
 							</a>
@@ -117,7 +137,7 @@
 					</div>
 					<div class="work">
 						<div class="content">
-							<img class="work-icon" src="/images/works/cemui.png" alt="">
+							<img class="work-icon" src="/assets/images/works/cemui.png" alt="">
 							<h1 class="work-title">CemUI</h1>
 							<ul class="work-languages">
 								<li>NodeJS</li>
@@ -130,7 +150,7 @@
 					</div>
 					<div class="work">
 						<div class="content">
-							<img class="work-icon" src="/images/works/miru.png" alt="">
+							<img class="work-icon" src="/assets/images/works/miru.png" alt="">
 							<h1 class="work-title">Miru</h1>
 							<ul class="work-languages">
 								<li>NodeJS</li>
@@ -146,7 +166,7 @@
 				</div>
 			</div>
 		</section>
-	
+
 		<section id="contact">
 			<div class="container">
 				<h1 class="section-title">Contact Me</h1>
@@ -174,7 +194,7 @@
 			</div>
 		</section>
 	</main>
-	
+
 	<footer>Copyright 2021 - Jonathan Barrow</footer>
 </body>
 
