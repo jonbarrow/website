@@ -2,6 +2,10 @@
 	publish = "dist/"
 
 [[redirects]]
+	from = "/works/disneyplus"
+	to = "/works/disneyplus-client"
+
+[[redirects]]
 	from = "/works/*"
 	to = "/works/:name.html"
 	status = 200
@@ -9,9 +13,4 @@
 [[redirects]]
 	from = "/works"
 	to = "/works.html"
-	status = 200
-
-[[redirects]]
-	from = "/disneyplus"
-	to = "/disneyplus-client"
 	status = 200
