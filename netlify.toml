@@ -5,3 +5,8 @@
 	from = "/works/*"
 	to = "/works/:name.html"
 	status = 200
+
+[[redirects]]
+	from = "/works"
+	to = "/works.html"
+	status = 200

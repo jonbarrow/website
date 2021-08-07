@@ -184,6 +184,11 @@ section#works p.section-description {
 	color: var(--text-color-gray);
 }
 
+section#works div#works-links-list {
+	margin-top: 5%;
+	text-align: center;
+}
+
 section#works div#works-list {
 	margin-top: 100px;
 	display: grid;
@@ -303,5 +308,15 @@ button#gmail {
 
 	section#works div#works-list .work .work-icon {
 		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 590px) {
+	section#works div#works-links-list {
+		text-align: left;
+	}
+
+	section#works div#works-links-list button {
+		margin: 5px;
 	}
 }
