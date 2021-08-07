@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- general -->
+	<title>Jonathan Barrow - Disney+ Client</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="/assets/site.webmanifest">
+	<meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+	<!-- windows/ios/chrome -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="apple-mobile-web-app-title" content="Jonathan Barrow">
+	<meta name="application-name" content="Jonathan Barrow">
+	<meta name="msapplication-TileColor" content="#262fac">
+	<meta name="theme-color" content="#262FAC">
+
+	<!-- open graph/embeds -->
+	<meta content="website" property="og:type">
+	<meta property="og:title" content="Jonathan Barrow">
+	<meta property="og:description" content="Reverse engineering the Disney+ private API and making a custom client">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://jonbarrow.dev/works/disneyplus-client">
+	<meta property="og:image" content="https://jonbarrow.dev/assets/images/works/disneyplus/meta-og.png">
+	<meta property="og:image:alt" content="Disney+ Client">
+	<meta property="og:site_name" content="Jonathan Barrow - Disney+ Client">
+
+	<!-- twitter embeds -->
+	<meta name="twitter:url" content="https://jonbarrow.dev/works/disneyplus-client">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@jondbarrow">
+	<meta name="twitter:title" content="Jonathan Barrow - Disney+ Client">
+	<meta name="twitter:description" content="Reverse engineering the Disney+ private API and making a custom client">
+	<meta name="twitter:image" content="https://jonbarrow.dev/assets/images/works/disneyplus/meta-twitter.png">
+
+	<!-- google seo -->
+	<meta name="description" content="Reverse engineering the Disney+ private API and making a custom client">
+	<meta name="robots" content="index, follow">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+	<link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#262FAC">
+	<link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+
+	<!-- styles -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css"
+		type="text/css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/styles/default.min.css">
+	<link href="/assets/css/work.css" rel="stylesheet">
+
+	<!-- scripts -->
+	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body>
+	<header>
+		<nav class="container">
+			<ul>
+				<li class="title">Jonathan Barrow</li>
+				<li class="link"><a href="/">Home</a></li>
+				<li class="link"><a href="/#about">About</a></li>
+				<li class="link"><a href="/#works">Works</a></li>
+				<li class="link"><a href="/#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="header" class="container">
+			<div>
+				<img id="icon" src="/assets/images/works/disneyplus/icon.png" alt="">
+				<h1 class="section-title">Disney+ Client</h1>
+				<p class="section-description">Reverse engineering the Disney+ private API and making a custom
+					client</p>
+				<a target="_blank" href="https://github.com/jonbarrow/disneyplus-client">
+					<button id="github">
+						<span class="si si-github"></span>
+						<span>View on GitHub</span>
+					</button>
+				</a>
+			</div>
+			<div class="header-images-wrapper">
+				<div class="header-images">
+					<img class="header-image" id="header-image-1" alt
+						src="/assets/images/works/disneyplus/screenshot1.jpeg">
+					<img class="header-image" id="header-image-2" alt
+						src="/assets/images/works/disneyplus/screenshot2.jpeg">
+				</div>
+			</div>
+		</section>
+
+		<section id="about">
+			<div class="container">
+				<h1 class="section-title">About the project</h1>
+				<p class="section-description">
+					Disney+ Client is a NodeJS library that can be used to interact with the Disney+ private API. The
+					library does not facilitate piracy and still requires a valid Disney+ paid account to work. It was
+					made by reverse engineering the API as used on an iPhone 8+ running iOS 14. Example usage below
+					showing a basic Discord bot that lets users search for content on Disney+</p>
+
+				<pre>
+					<code class="language-javascript">
+// bot.js
+require('dotenv').config();
+const DisneyPlusClient = require('disneyplus-client');
+const Discord = require('discord.js');
+const commands = require('./commands');
+
+const disneyClient = new DisneyPlusClient();
+const discordClient = new Discord.Client();
+
+disneyClient.on('ready', async () => {
+	// Login the user as if we have never connected before
+	// Normally you would reuse a refresh token
+
+	await disneyClient.createDeviceGrant(); // Get device grant token
+	await disneyClient.exchangeDeviceToken(); // Convert that token into an OAuth token (Disney+ requires an OAuth token even for logging in)
+	await disneyClient.login(process.env.DISNEY_PLUS_EMAIL, process.env.DISNEY_PLUS_PASSWORD); // Login the user (this does more stuff under the hood)
+
+	discordClient.login(process.env.DISCORD_BOT_TOKEN);
+});
+
+discordClient.on('ready', async () => {
+	console.log(`Logged in as ${discordClient.user.tag}!`);
+});
+
+discordClient.on('message', message => {
+	if (message.author.id === discordClient.user.id) return;
+
+	if (message.content.startsWith('d+')) {
+		const commandName = message.content.split(' ')[1];
+		const commandArgs = message.content.split(' ').slice(2).join(' ');
+
+		if (!commands[commandName]) {
+			console.warn('No command ' + commandName + ' found');
+			return;
+		}
+
+		return commands[commandName](commandArgs, disneyClient, message);
+	}
+});
+
+
+function start() {
+	disneyClient.init();
+}
+
+module.exports = {
+	start
+};
+					</code>
+				</pre>
+
+				<pre>
+					<code class="language-javascript">
+// commands.js
+const Discord = require('discord.js');
+
+async function search(query, disneyClient, message) {
+	const searchResults = await disneyClient.search(query);
+
+	const embed = new Discord.MessageEmbed()
+		.setColor(0x113CCF)
+		.setTitle(`Search results for "${query}"`)
+		.setAuthor('Disney+', 'https://cdn.discordapp.com/avatars/756233648486744085/894c5202b4bf59211f186dd31ae4d99a.webp');
+
+	embed.addField('\u200B', '\u200B');
+
+	for (const { hit } of searchResults.hits) {
+		for (const text of hit.texts) {
+			if (text.field === 'title' && text.type === 'full') {
+				embed.addField(text.content, '\u200B');
+			}
+		}
+	}
+
+	message.reply(embed);
+}
+
+async function details(title, disneyClient, message) {
+	const searchResults = await disneyClient.search(title);
+
+	let content;
+	let description;
+	let titleFull;
+	let imageURL;
+	let slug;
+
+	// Filter the search results
+	if (searchResults.meta.hits > 1) {
+
+		for (const { hit } of searchResults.hits) {
+			for (const text of hit.texts) {
+				if (text.field === 'title' && text.type === 'full') {
+					if (text.content.toLowerCase() === title.toLowerCase()) {
+						content = hit;
+						break;
+					}
+				}
+			}
+		}
+	} else {
+		content = searchResults.hits[0].hit;
+	}
+
+	if (!content) {
+		console.warn('Failed to find media');
+		return;
+	}
+
+	for (const text of content.texts) {
+		if (text.language !== 'en') continue;
+
+		if (text.field === 'title' && text.type === 'full') {
+			titleFull = text.content;
+		}
+
+		if (text.field === 'title' && text.type === 'slug') {
+			slug = text.content;
+		}
+
+		if (text.field === 'description' && text.type === 'medium') {
+			description = text.content;
+		}
+	}
+
+	for (const image of content.images) {
+		if (image.purpose === 'tile' && image.sourceEntity === 'program' && image.aspectRatio === 1.78) {
+			imageURL = image.url;
+			break;
+		}
+	}
+
+	const type = content.programType + 's'; // "movie" -> "movies". Probably a better way to do this
+	const encodedFamilyId = content.family.encodedFamilyId;
+
+	const embed = new Discord.MessageEmbed()
+		.setColor(0x113CCF)
+		.setTitle(`Click here to watch "${titleFull}" on Disney+`)
+		.setURL(`https://www.disneyplus.com/${type}/${slug}/${encodedFamilyId}`)
+		.setDescription(description)
+		.setImage(imageURL)
+		.setThumbnail('https://cdn.discordapp.com/avatars/756233648486744085/894c5202b4bf59211f186dd31ae4d99a.webp')
+		.setAuthor('Disney+', 'https://cdn.discordapp.com/avatars/756233648486744085/894c5202b4bf59211f186dd31ae4d99a.webp');
+
+	message.reply(embed);
+}
+
+module.exports = {
+	search,
+	details
+};
+					</code>
+				</pre>
+			</div>
+		</section>
+	</main>
+
+	<footer>Copyright 2021 - Jonathan Barrow</footer>
+</body>
+
+</html>
