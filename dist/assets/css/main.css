@@ -69,6 +69,11 @@ section {
 	margin-bottom: 10%;
 }
 
+section .section-description {
+	color: #475252;
+	font-size: larger;
+}
+
 section#header {
 	margin-top: 7%;
 	text-align: center;
@@ -134,8 +139,8 @@ section#about {
 }
 
 section#about p {
-	font-size: 1rem;
-	color: var(--text-color-gray);
+	/*font-size: 1rem;
+	color: var(--text-color-gray);*/
 	line-height: 1.3;
 }
 
@@ -180,8 +185,8 @@ section#works p.section-description {
 	max-width: 550px;
 	margin: auto;
 	text-align: center;
-	font-size: 1rem;
-	color: var(--text-color-gray);
+	/*font-size: 1rem;
+	color: var(--text-color-gray);*/
 }
 
 section#works div#works-links-list {
