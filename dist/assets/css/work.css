@@ -99,8 +99,8 @@ section#header img#icon {
 }
 
 section#header p {
-	font-size: 1rem;
-	color: var(--text-color-gray);
+	/*font-size: 1rem;
+	color: var(--text-color-gray);*/
 	line-height: 1.3;
 }
 
