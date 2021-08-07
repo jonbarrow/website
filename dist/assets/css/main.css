@@ -17,6 +17,22 @@ a {
 	color: inherit;
 }
 
+button {
+	appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	border-radius: 6px;
+	font-size: 1rem;
+	color: white;
+	padding: 12px 48px;
+	background: #262FAC;
+	cursor: pointer;
+}
+
+button span {
+	vertical-align: middle
+}
+
 .container {
 	width: 90%;
 	max-width: 1000px;
@@ -226,34 +242,26 @@ footer {
 	padding: 20px 0;
 }
 
-button {
-	appearance: none;
-	-webkit-appearance: none;
-	border: 0;
-	border-radius: 6px;
-	font-size: 1rem;
-	color: white;
-	padding: 12px 48px;
-	background: #262FAC;
-	cursor: pointer;
+button#github {
+	background: #181717;
 }
 
-button.patreon {
+button#patreon {
 	background: #F96854;
 }
-button.kofi {
+button#kofi {
 	background: #F16061;
 }
-button.twitter {
+button#twitter {
 	background: #1DA1F2;
 }
-button.discord {
+button#discord {
 	background: #5865F2;
 }
-button.linkedin {
+button#linkedin {
 	background: #0077B5;
 }
-button.gmail {
+button#gmail {
 	background: #D14836;
 }
 
