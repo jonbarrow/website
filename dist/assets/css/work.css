@@ -75,6 +75,11 @@ section {
 	margin-bottom: 10%;
 }
 
+section .section-description {
+	color: #475252;
+	font-size: larger;
+}
+
 section#header {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
