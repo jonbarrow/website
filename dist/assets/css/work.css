@@ -39,6 +39,10 @@ button#google-play {
 	background: #414141;
 }
 
+button#github {
+	background: #181717;
+}
+
 .container {
 	width: 90%;
 	max-width: 1000px;
