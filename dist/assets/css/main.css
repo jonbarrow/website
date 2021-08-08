@@ -30,7 +30,34 @@ button {
 }
 
 button span {
-	vertical-align: middle
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+button span.si {
+	padding: 0 12px;
+}
+
+button#github {
+	background: #181717;
+}
+button#patreon {
+	background: #F96854;
+}
+button#kofi {
+	background: #F16061;
+}
+button#twitter {
+	background: #1DA1F2;
+}
+button#discord {
+	background: #5865F2;
+}
+button#linkedin {
+	background: #0077B5;
+}
+button#gmail {
+	background: #D14836;
 }
 
 .container {
@@ -250,29 +277,6 @@ footer {
 	font-size: larger;
 	color: var(--text-color-gray);
 	padding: 20px 0;
-}
-
-button#github {
-	background: #181717;
-}
-
-button#patreon {
-	background: #F96854;
-}
-button#kofi {
-	background: #F16061;
-}
-button#twitter {
-	background: #1DA1F2;
-}
-button#discord {
-	background: #5865F2;
-}
-button#linkedin {
-	background: #0077B5;
-}
-button#gmail {
-	background: #D14836;
 }
 
 .social-links {
