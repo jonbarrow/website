@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- general -->
+	<title>Jonathan Barrow - Pinder</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="/assets/site.webmanifest">
+	<meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+	<!-- windows/ios/chrome -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="apple-mobile-web-app-title" content="Jonathan Barrow">
+	<meta name="application-name" content="Jonathan Barrow">
+	<meta name="msapplication-TileColor" content="#262fac">
+	<meta name="theme-color" content="#262FAC">
+
+	<!-- open graph/embeds -->
+	<meta content="website" property="og:type">
+	<meta property="og:title" content="Jonathan Barrow">
+	<meta property="og:description" content="Pinder makes it easy for families to find their next furry match. Easily search through adoptable pets in your area in a simple swipe-style list">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://jonbarrow.dev/works/pinder">
+	<meta property="og:image" content="https://jonbarrow.dev/assets/images/works/pinder/meta-og.png">
+	<meta property="og:image:alt" content="Pinder">
+	<meta property="og:site_name" content="Jonathan Barrow - Pinder">
+
+	<!-- twitter embeds -->
+	<meta name="twitter:url" content="https://jonbarrow.dev/works/pinder">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@jondbarrow">
+	<meta name="twitter:title" content="Jonathan Barrow - Pinder">
+	<meta name="twitter:description" content="Find your purrfect match!">
+	<meta name="twitter:image" content="https://jonbarrow.dev/assets/images/works/pinder/meta-twitter.png">
+
+	<!-- google seo -->
+	<meta name="description" content="Pinder makes it easy for families to find their next furry match. Easily search through adoptable pets in your area in a simple swipe-style list">
+	<meta name="robots" content="index, follow">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+	<link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#262FAC">
+	<link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+
+	<!-- styles -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css"
+		type="text/css">
+	<link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
+	<link href="/assets/css/work.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<nav class="container">
+			<ul>
+				<li class="title">Jonathan Barrow</li>
+				<li class="link"><a href="/">Home</a></li>
+				<li class="link"><a href="/#about">About</a></li>
+				<li class="link"><a href="/#works">Works</a></li>
+				<li class="link"><a href="/#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="header" class="container">
+			<div>
+				<img id="icon" src="" alt="">
+				<h1 class="section-title">BCSV</h1>
+				<p class="section-description">Binary CSV file format used on the Nintendo Switch</p>
+				<a target="_blank" href="https://wiki.oatmealdome.me/BCSV">
+					<button id="google-play">View Original Wiki</button>
+				</a>
+			</div>
+			<div class="header-images-wrapper">
+				<div class="header-images">
+					<img class="header-image" id="header-image-1" alt src="/assets/images/works/bcsv/screenshot1.jpg">
+					<img class="header-image" id="header-image-2" alt src="/assets/images/works/bcsv/screenshot2.jpg">
+				</div>
+			</div>
+		</section>
+
+		<section id="about">
+			<div class="container">
+				<h1 class="section-title">About the project</h1>
+				<p class="section-description">Note: The information here borrows from <a
+						href="https://wiki.oatmealdome.me/BCSV" target="_blank">https://wiki.oatmealdome.me/BCSV</a>,
+					which is where I originally posted my findings. I have since moved the data here with some updated clarifications</p>
+				<p class="section-description">BCSV, also known as Binary CSV, is a file format used on the Nintendo
+					Switch which stores data normally stored in a table or spreadsheet in a compact binary file. All
+					information was gathered from reverse engineering the BCSV files found in Animal Crossing: New
+					Horizons</p>
+
+				<h3 class="section-title">Overview</h3>
+				<p class="section-description">All data is in little-endian. BCSV files contain 3 main parts:</p>
+				<ul>
+					<li>1: A header which sets data such as the number of row blocks, their size, the number of columns,
+						etc</li>
+					<li>2: A list of all column name hashes and their offset inside each row block</li>
+					<li>3: Row blocks</li>
+				</ul>
+
+				<h3 class="section-title">Header</h3>
+				<p class="section-description">The header sets the BCSV files metadata such as column and row count</p>
+				<table summary="Layout of a BCSV header">
+					<thead>
+						<tr>
+							<th scope="col">Offset</th>
+							<th scope="col">Size</th>
+							<th scope="col">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>0x00</td>
+							<td>0x4</td>
+							<td>Row block count</td>
+						</tr>
+						<tr>
+							<td>0x04</td>
+							<td>0x4</td>
+							<td>Row block size</td>
+						</tr>
+						<tr>
+							<td>0x08</td>
+							<td>0x2</td>
+							<td>Column block count</td>
+						</tr>
+						<tr>
+							<td>0x0A</td>
+							<td>0x2</td>
+							<td>Always 0x0101</td>
+						</tr>
+						<tr>
+							<td>0x0C</td>
+							<td>0x4</td>
+							<td>VSCB Magic</td>
+						</tr>
+						<tr>
+							<td>0x10</td>
+							<td>0x2</td>
+							<td>Always 0x1027</td>
+						</tr>
+						<tr>
+							<td>0x12</td>
+							<td>0xA</td>
+							<td>Padding</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3 class="section-title">Column Blocks</h3>
+				<p class="section-description">Following the header is a list of coulmn blocks. These blocks contain the
+					CRC32 hash of the real column name followed by the relative offset in each row block that that
+					columns data is</p>
+				<table summary="Layout of a BCSV column block">
+					<thead>
+						<tr>
+							<th scope="col">Offset</th>
+							<th scope="col">Size</th>
+							<th scope="col">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>0x00</td>
+							<td>0x4</td>
+							<td>Identifier</td>
+						</tr>
+						<tr>
+							<td>0x04</td>
+							<td>0x4</td>
+							<td>Offset relative to start of each row block</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="section-description">The `Identifier` is the CRC32 of "column-name data-type", for
+					example `UniqueID u16`. In the case of AC:NH these
+					are entirely in-lined and the game has no knowledge of the pre-hashed strings, so knowing what the
+					columns original names
+					are requires calculating them yourself</p>
+				<p class="section-description">The data type for each column is only known at compile time and therefore
+					there is no way to 100% know what each data
+					type is. It is possible roughly determine the type by checking the data size, though (IE, data with
+					a size of 2 could be
+					an int16)</p>
+
+				<h3 class="section-title">Row Blocks</h3>
+				<p class="section-description">Following the list of coulmn blocks is a list of row blocks. These blocks
+					contain the actual data from each column in the given row using the relative offset found before.
+					These blocks always begin with the blocks relative offset from the start of the file</p>
+				<table summary="Layout of a BCSV column block">
+					<thead>
+						<tr>
+							<th scope="col">Offset</th>
+							<th scope="col">Size</th>
+							<th scope="col">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>0x00</td>
+							<td>0x4</td>
+							<td>Offset relative to file start</td>
+						</tr>
+						<tr>
+							<td>0x04</td>
+							<td></td>
+							<td>Row data</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+
+	<footer>Copyright 2021 - Jonathan Barrow</footer>
+</body>
+
+</html>
