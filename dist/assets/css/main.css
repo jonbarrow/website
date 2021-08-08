@@ -275,10 +275,17 @@ button#gmail {
 	background: #D14836;
 }
 
-.social-links a {
-	display: inline-block;
-	padding: 10px
+.social-links {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+	gap: 1rem;
+	row-gap: 1em;
 }
+
+.social-links button {
+	width: 100%;
+}
+
 
 @media only screen and (max-width: 768px) {
 	nav ul li.title {
@@ -313,6 +320,12 @@ button#gmail {
 
 	section#works div#works-list .work .work-icon {
 		margin-top: 0;
+	}
+
+	.social-links {
+		grid-template-columns: 1fr;
+		padding: 0;
+		grid-row-gap: 20px;
 	}
 }
 
