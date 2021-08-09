@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- general -->
+	<title>Jonathan Barrow - Partrick</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="/assets/site.webmanifest">
+	<meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+	<!-- windows/ios/chrome -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="apple-mobile-web-app-title" content="Jonathan Barrow">
+	<meta name="application-name" content="Jonathan Barrow">
+	<meta name="msapplication-TileColor" content="#262fac">
+	<meta name="theme-color" content="#262FAC">
+
+	<!-- open graph/embeds -->
+	<meta content="website" property="og:type">
+	<meta property="og:title" content="Jonathan Barrow">
+	<meta property="og:description" content="SMM2 course editor library">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://jonbarrow.dev/works/partrick">
+	<meta property="og:image" content="https://jonbarrow.dev/assets/images/works/partrick/meta-og.png">
+	<meta property="og:image:alt" content="Partrick">
+	<meta property="og:site_name" content="Jonathan Barrow - Partrick">
+
+	<!-- twitter embeds -->
+	<meta name="twitter:url" content="https://jonbarrow.dev/works/partrick">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@jondbarrow">
+	<meta name="twitter:title" content="Jonathan Barrow - Partrick">
+	<meta name="twitter:description" content="SMM2 course editor library">
+	<meta name="twitter:image" content="https://jonbarrow.dev/assets/images/works/partrick/meta-twitter.png">
+
+	<!-- google seo -->
+	<meta name="description" content="SMM2 course editor library">
+	<meta name="robots" content="index, follow">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+	<link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#262FAC">
+	<link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+
+	<!-- styles -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css"
+		type="text/css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/styles/default.min.css">
+	<link href="/assets/css/work.css" rel="stylesheet">
+
+	<!-- scripts -->
+	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.2.0/build/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+</head>
+
+<body>
+	<header>
+		<nav class="container">
+			<ul>
+				<li class="title">Jonathan Barrow</li>
+				<li class="link"><a href="/">Home</a></li>
+				<li class="link"><a href="/#about">About</a></li>
+				<li class="link"><a href="/#works">Works</a></li>
+				<li class="link"><a href="/#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="header" class="container">
+			<div>
+				<img id="icon" src="/assets/images/works/partrick/icon.png" alt="">
+				<h1 class="section-title">Partrick</h1>
+				<p class="section-description">SMM2 course editor library</p>
+				<a target="_blank" href="https://github.com/jonbarrow/partrick">
+					<button id="github">
+						<span class="si si-github"></span>
+						<span>View on GitHub</span>
+					</button>
+				</a>
+			</div>
+			<div class="header-images-wrapper">
+				<div class="header-images">
+					<img class="header-image" id="header-image-1" alt
+						src="/assets/images/works/partrick/screenshot1.jpg">
+					<img class="header-image" id="header-image-2" alt
+						src="/assets/images/works/partrick/screenshot2.jpg">
+				</div>
+			</div>
+		</section>
+
+		<section id="about">
+			<div class="container">
+				<h1 class="section-title">About the project</h1>
+				<p class="section-description">Partrick is a NodeJS module capable of decrypting, parsing, editing, and
+					encrypting Super Mario Maker 2 courses. These courses can then be injected back into the users save
+					and uploaded publically</p>
+				<h3 class="section-title">Notes:</h3>
+				<ul>
+					<li>1: 3DW support is limited at the moment, due to this being designed for a GUI course editor.
+						Since 3DW uses 3D models and
+						not 2D sprites, it is harder to easily get ahold of and implement these models into this editor,
+						and thus 3DW support is
+						not a priority (though it can be added)</li>
+					<li>2: This is still highly unfinished. While it does work, it has some clear limitations</li>
+					<li>3: 99% of the object classes are bare-bones and have no API for editing properties</li>
+					<li>4: Object-specific blocks of course data are not handled at all, only the generic Objects block
+						is parsed (meaning data
+						like snakeblock nodes is lost at the moment)</li>
+					<li>5: The subworld is not implemented at all, instead it is just stitched back to the end of the
+						course data and re-used</li>
+				</ul>
+				<h3 class="section-title">Example: Edit impossible course to bypass clear check</h3>
+				<pre>
+					<code class="language-javascript">
+// Import tools for course editing
+const { encryption, Course } = require('partrick');
+const fs = require('fs');
+
+const data = fs.readFileSync('./unbeatable_course.bcd');
+
+// Decrypt the course data
+const decrypted = encryption.decryptCourse(data);
+
+// Use decrypted data to create a new Course
+const course = new Course(decrypted);
+
+// Trick the game into thinking the course has passed clear check, when in fact it has not
+course.management_flags |= 3; // Can be uploaded
+
+// All metadata can be changed
+course.name = 'impossible';
+course.description = 'I have not cleared this course, yet it uploads. It cannot be beaten';
+
+// Encode and encrypt the edited course
+const encrypted = encryption.encryptCourse(course.encode()); // Encode and encrypt the course again
+
+// Save the new course to disk
+fs.writeFileSync('impossible_course.bcd', encrypted);
+
+// This course can now be injected back into the users save and uploaded, bypassing clear check
+					</code>
+				</pre>
+			</div>
+		</section>
+	</main>
+
+	<footer>Copyright 2021 - Jonathan Barrow</footer>
+</body>
+
+</html>
